@@ -38,7 +38,7 @@ public class PaletteSampler {
       //write results into txt file
       FileWriter writer = new FileWriter("output_RGBvalues.txt");
       for (int i = 0; i < colors.size(); i++) {
-         writer.append(i + ". " + colors.get(i) + "\n");
+         writer.append((i+1) + ". " + colors.get(i) + "\n");
          writer.flush();
       }
       writer.close();
@@ -47,16 +47,17 @@ public class PaletteSampler {
       //********** create image file with the colors palette **********//
 
       //image file dimensions
-      int width = (int) Math.ceil(Math.sqrt(colors.size()));
-      int height = (int) Math.ceil(colors.size() / width);
+      int width = (int) ((double)Math.ceil((double)Math.sqrt(colors.size())));
+      int height = (int) ((double)Math.ceil((double)colors.size() / width));
 
       /*
       System.out.println("-------------------");  
-      System.out.println("\ncolors count: "colors.size());
-      System.out.println("image width: " +  width);
-      System.out.println("image height: " + height);
+      System.out.println("\ncolors count: " + colors.size());
+      System.out.println("palette width: " +  width);
+      System.out.println("palette height: " + height);
       System.out.println("-------------------");  
       */
+     
 
       //create buffered image object
       BufferedImage img2 = null;
